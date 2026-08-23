@@ -572,17 +572,20 @@ a { color: inherit; text-decoration: none; }
 }
 
 .project-visual {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 200px;
   position: relative;
   overflow: hidden;
+  background: var(--bg-card);
 }
-.pv-1 { background: var(--gradient-purple); }
-.pv-2 { background: var(--gradient-orange); }
-.pv-3 { background: var(--gradient-blue); }
-.pv-icon { font-size: 3rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+.project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:hover .project-visual img {
+  transform: scale(1.06);
+}
 
 .project-body {
   padding: 1.5rem;
