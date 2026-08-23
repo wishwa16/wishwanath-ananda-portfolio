@@ -151,11 +151,11 @@ themeToggle.addEventListener('click', () => {
 /* Contact form */
 contactForm.addEventListener('submit', e => {
   e.preventDefault();
-  const form = e.target;
-  const name = form.querySelector('input[type="text"]').value;
-  const email = form.querySelector('input[type="email"]').value;
-  const subject = form.querySelectorAll('input[type="text"]')[1]?.value || 'Portfolio Contact';
-  const message = form.querySelector('textarea').value;
+  const fd = new FormData(e.target);
+  const name = fd.get('name');
+  const email = fd.get('email');
+  const subject = fd.get('subject') || 'Portfolio Contact';
+  const message = fd.get('message');
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
   window.location.href = `mailto:wishwa16ananda@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
 });
